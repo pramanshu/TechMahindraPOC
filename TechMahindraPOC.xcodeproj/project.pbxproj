@@ -15,6 +15,7 @@
 		D3A1E84224DC9D6300318FDF /* TechMahindraPOCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A1E84124DC9D6300318FDF /* TechMahindraPOCTests.swift */; };
 		D3A1E84D24DC9D6300318FDF /* TechMahindraPOCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A1E84C24DC9D6300318FDF /* TechMahindraPOCUITests.swift */; };
 		D3A1E85C24DCA0C800318FDF /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A1E85B24DCA0C800318FDF /* Webservice.swift */; };
+		D3A1E86324DCA1E900318FDF /* FactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A1E86224DCA1E900318FDF /* FactsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		D3A1E84C24DC9D6300318FDF /* TechMahindraPOCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechMahindraPOCUITests.swift; sourceTree = "<group>"; };
 		D3A1E84E24DC9D6300318FDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3A1E85B24DCA0C800318FDF /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
+		D3A1E86224DCA1E900318FDF /* FactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +105,6 @@
 				D3A1E85A24DCA09900318FDF /* NetworkLayer */,
 				D3A1E82A24DC9D6000318FDF /* AppDelegate.swift */,
 				D3A1E82C24DC9D6000318FDF /* SceneDelegate.swift */,
-				D3A1E82E24DC9D6000318FDF /* FactsViewController.swift */,
 				D3A1E83324DC9D6300318FDF /* Assets.xcassets */,
 				D3A1E83524DC9D6300318FDF /* LaunchScreen.storyboard */,
 				D3A1E83824DC9D6300318FDF /* Info.plist */,
@@ -151,6 +152,7 @@
 		D3A1E85E24DCA0DF00318FDF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D3A1E86224DCA1E900318FDF /* FactsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,6 +167,7 @@
 		D3A1E86024DCA0FE00318FDF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D3A1E82E24DC9D6000318FDF /* FactsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				D3A1E82F24DC9D6000318FDF /* FactsViewController.swift in Sources */,
 				D3A1E82B24DC9D6000318FDF /* AppDelegate.swift in Sources */,
 				D3A1E85C24DCA0C800318FDF /* Webservice.swift in Sources */,
+				D3A1E86324DCA1E900318FDF /* FactsModel.swift in Sources */,
 				D3A1E82D24DC9D6000318FDF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
