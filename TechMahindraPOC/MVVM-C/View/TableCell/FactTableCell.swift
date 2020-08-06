@@ -13,7 +13,9 @@ class FactTableCell: UITableViewCell {
     
     
         //MARK: URLSessionDataTask instance so we can cancel it later
+        
 
+    private var dataTask : URLSessionDataTask?
         
         
         
@@ -102,16 +104,47 @@ class FactTableCell: UITableViewCell {
         
         //MARK: Configure Cell
         
-    public func configure(with info:FactViewModel){
+    public func configure(with info:FactViewModel,session: URLSession){
             
             self.selectionStyle = .none
             self.titleLabel.text =  info.title
             self.descriptionLabel.text = info.description
             
-        
-            
+         let imgUrl = URL(string: info.imageHref)
+                   if let imgUrl = imgUrl{
+                       
+                     
+                       // passed session is used for creating data task
+                       let dataTask = session.dataTask(with: imgUrl) { (data, _, _) in
+                           
+                           guard let data = data else{
+                                DispatchQueue.main.async {
+                               self.placeImageView.image = UIImage(imageLiteralResourceName: "placeHolderImage")
+                               }
+                               return
+                           }
+                          
+                           let image = UIImage(data: data)
+                           
+                           DispatchQueue.main.async {
+                               if((image) != nil){
+                               self.placeImageView.image = image
+                               }
+                               else{
+                                    self.placeImageView.image = UIImage(imageLiteralResourceName: "placeHolderImage")
+                               }
+                           }
+                       }
+                       self.dataTask = dataTask
+                       dataTask.resume()
+                   }
+                   else{
+                        self.placeImageView.image = UIImage(imageLiteralResourceName: "placeHolderImage")
+                       
+               }
+                   
 
-        }
+               }
         
         
     
@@ -119,7 +152,9 @@ class FactTableCell: UITableViewCell {
     //MARK:  cancelling urlsession task instance while scrolling
     override func prepareForReuse() {
         
-        
+        self.dataTask?.cancel()
+               dataTask = nil
+               self.placeImageView.image = nil
         
     }
         

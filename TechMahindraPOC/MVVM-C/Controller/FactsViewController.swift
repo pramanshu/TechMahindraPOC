@@ -20,7 +20,16 @@ class FactsViewController: UIViewController {
       }()
     
     
+  //MARK: Configure url session for caching image
   
+  
+  private lazy var session : URLSession = {
+      let configuration = URLSessionConfiguration.default
+      configuration.requestCachePolicy = .returnCacheDataElseLoad
+      return URLSession(configuration: configuration)
+      
+  }()
+
     
     
     
@@ -117,7 +126,7 @@ extension FactsViewController: UITableViewDelegate,UITableViewDataSource{
                  fatalError("Display Data Cell not found...")
              }
              
-        cell.configure(with: (self.factListViewModel?.dataAtIndex(indexPath.row))!)
+        cell.configure(with: (self.factListViewModel?.dataAtIndex(indexPath.row))!, session: session)
              return cell
     }
     
