@@ -115,11 +115,11 @@ class FactTableCell: UITableViewCell {
                        
                      
                        // passed session is used for creating data task
-                       let dataTask = session.dataTask(with: imgUrl) { (data, _, _) in
+                       let dataTask = session.dataTask(with: imgUrl) {[weak self] (data, _, _) in
                            
                            guard let data = data else{
                                 DispatchQueue.main.async {
-                               self.placeImageView.image = UIImage(imageLiteralResourceName: "placeHolderImage")
+                                    self?.placeImageView.image = UIImage(imageLiteralResourceName: "placeHolderImage")
                                }
                                return
                            }
@@ -128,10 +128,10 @@ class FactTableCell: UITableViewCell {
                            
                            DispatchQueue.main.async {
                                if((image) != nil){
-                               self.placeImageView.image = image
+                                self?.placeImageView.image = image
                                }
                                else{
-                                    self.placeImageView.image = UIImage(imageLiteralResourceName: "placeHolderImage")
+                                self?.placeImageView.image = UIImage(imageLiteralResourceName: "placeHolderImage")
                                }
                            }
                        }
